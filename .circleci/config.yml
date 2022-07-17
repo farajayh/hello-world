@@ -21,7 +21,7 @@ jobs:
     docker:
       - image: cimg/node:17.2.0
     steps:
-      - run: echo $MY_NAME
+      - run: echo " My name is " $MY_NAME
 
       
 
@@ -31,7 +31,4 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - print_hello
-      - print_world:
-          requires: [print_hello]
       - print_name
