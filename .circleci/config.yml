@@ -11,13 +11,11 @@ jobs:
     docker: 
       - image: cimg/node:17.2.0
     steps:
-      - checkout
       - run: echo "Hello"
   print_world:
     docker: 
       - image: cimg/node:17.2.0
     steps:
-      - checkout
       - run: echo "World"
       
 
