@@ -22,6 +22,24 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - run: echo " My name is " $MY_NAME
+  save_hello_world_output:
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - run: echo "Hello World!" > output.txt
+      - persist_to_workspace:
+          root: /tmp/dir
+          paths:
+            - output.txt
+
+  print_output_file:
+    docker: 
+      - image: cimg/node:17.2.0
+    steps:
+      - attach_workspace:
+          at: /tmp/dir
+      - run: cat /tmp/workspace/output.txt
+
 
       
 
