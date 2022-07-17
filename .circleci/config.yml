@@ -28,7 +28,7 @@ jobs:
     steps:
       - run: echo "Hello World!" > output.txt
       - persist_to_workspace:
-          root: /tmp/dir
+          root: /tmp/workspace
           paths:
             - output.txt
 
@@ -37,7 +37,7 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - attach_workspace:
-          at: /tmp/dir
+          at: /tmp/workspace
       - run: cat /tmp/workspace/output.txt
 
 
