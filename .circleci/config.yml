@@ -26,9 +26,9 @@ jobs:
     docker:
       - image: cimg/node:17.2.0
     steps:
-      - run: echo "Hello World!" > output.txt
+      - run: echo "Hello World!" > ~/output.txt
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: ~/
           paths:
             - output.txt
 
@@ -37,8 +37,8 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - attach_workspace:
-          at: /tmp/workspace
-      - run: cat /tmp/workspace/output.txt
+          at: ~/
+      - run: cat ~/output.txt
 
 
       
