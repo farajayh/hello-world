@@ -53,3 +53,5 @@ workflows:
       - print_world:
           requires: [print_hello]
       - print_name
+      - save_hello_world_output
+      - print_output_file
