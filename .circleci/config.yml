@@ -17,7 +17,11 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - run: echo "World"
-      
+  print_name:
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - run: echo <<MY_NAME>>
 
       
 
