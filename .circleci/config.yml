@@ -21,7 +21,7 @@ jobs:
     docker:
       - image: cimg/node:17.2.0
     steps:
-      - run: echo <<MY_NAME>>
+      - run: echo $MY_NAME
 
       
 
@@ -34,3 +34,4 @@ workflows:
       - print_hello
       - print_world:
           requires: [print_hello]
+      - print_name
