@@ -5,6 +5,11 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   node: circleci/node@4.7
+
+commands: # a reusable command with parameters
+  print_pipeline_id:
+    steps:
+      - run: echo "Hello $CIRCLE_WORKFLOW_ID"
   
 jobs:
   print_hello:
@@ -12,6 +17,7 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - run: echo "Hello"
+      - print_pipeline_id
   print_world:
     docker: 
       - image: cimg/node:17.2.0
@@ -56,3 +62,4 @@ workflows:
       - save_hello_world_output
       - print_output_file:
           requires: [save_hello_world_output]
+      
