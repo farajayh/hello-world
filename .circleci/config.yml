@@ -16,8 +16,13 @@ jobs:
     docker: 
       - image: cimg/node:17.2.0
     steps:
+      - run: return 1
       - run: echo "Hello"
       - print_pipeline_id
+      - run:
+          command: echo "Hello Error"
+          when: on_fail
+        
   print_world:
     docker: 
       - image: cimg/node:17.2.0
